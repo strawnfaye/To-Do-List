@@ -16,29 +16,29 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService, private localSt:LocalStorageService) { }
 
   ngOnInit() {
-    this.tasks = [];
-    this.addTask();
     this.getTasks();
-    this.localSt.observe('taskList').subscribe((value) => console.log('new task', value));
     interval(3000).subscribe(x => {
       this.store();
     })
   }
 
   getTasks(): void {
-    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+    this.taskService.tasks().subscribe(tasks => this.tasks = tasks);
+    this.tasks = this.taskService.retrieveTasks();
+    if (this.tasks == null || this.tasks.length == 0) this.addTask(); 
   }
 
   store(): void {
-    this.taskService.storeTasks(this.tasks);
+    if (this.tasks != null) this.taskService.storeTasks(this.tasks);
   }
 
   addTask() {
+    if (this.tasks == null) this.tasks = [];
     this.tasks.push({name:"", status: false})
   }
 
   clearTasks() {
-    this.taskService.clearTasks();
+    this.tasks = this.tasks.filter(task => task.status == false);
   }
 
 }

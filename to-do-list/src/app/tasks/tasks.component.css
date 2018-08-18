@@ -2,25 +2,18 @@
 :host {
     max-width: 500px;
     width: 50%;
+    border-radius: 10px;
+    background-color: #F2D7D5;
+    margin: 20px;
 }
 
 .tasks {
-    border-radius: 10px;
-    background-color: #F2D7D5;
-    list-style-type: none;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 20px;
 }
 
-/*
-.tasks li {
-    cursor: pointer;
-    position: relative;
-    background-color: white;
-    margin: .5em;
-    padding:  0 5px 10px 10px;
-    border-radius: 5px;
-}
-*/
 input:hover {
     background-color: #A2D9CE;
     color: white;
@@ -29,7 +22,7 @@ input:hover {
 
 input {
     font-family: 'Courier New', Courier, monospace;
-    width: 80%;
+    width: 75%;
     margin: 4px 0;
     margin-left: 34px;
     padding: 12px 20px;
@@ -53,8 +46,14 @@ input[type='checkbox'] {
     position: relative;
 }
 
-.task span::before,
-.task span::after {
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.task .checkbox::before,
+.task .checkbox::after {
     border-radius: 5px;
     content: '';
     position: absolute;
@@ -63,36 +62,52 @@ input[type='checkbox'] {
     margin: auto;
 }
 
-.task span.checkbox::before {
+.task .checkbox::before {
     width: 28px;
     height: 28px;
-    background-color: #A2D9CE;
+    background-color: #73C6B6;
     /* left: -35px; */
     box-sizing: border-box;
     border: none;
     transition: border-color .2s;
-  }
-  .task span.checkbox:hover::before {
-    background-color: #73C6B6;
+}
+.task .checkbox:hover::before {
+    background-color: #A2D9CE;
     cursor: pointer;
-  }
-  .task span.checkbox::after {
-    background-color: #117A65;
+}
+
+.task .checkbox::after {
+    display: none;
+}
+
+.task input:checked ~ .checkbox::after {
+    display: block;
+    cursor: pointer;
+    border-radius: 1px;
+    left: 9px;
+    bottom: 1px;
     transition: background-color .2s;
-  }
-  input[type="checkbox"]:checked + label span.checkbox::after {
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+input[type="checkbox"]:checked + label .checkbox::after {
     background-color: #117A65;
-  }
+}
 
-  button:hover {
-      cursor: pointer;
-      color: #D98880;
-      background-color: #F9EBEA;
-  }
+button:hover {
+    cursor: pointer;
+    color: #D98880;
+    background-color: #F9EBEA;
+}
 
-  button {
+button {
     font-family: monospace;
-    color: #F9EBEA;
+    color: white;
     background-color: #D98880;
     border: none;
     border-radius: 5px;
@@ -100,9 +115,13 @@ input[type='checkbox'] {
     width: 20%;
     min-width: 50px;
     margin: 8px;
-  }
+}
 
-  .button-container {
+button:focus {
+    outline: none;
+}
+
+.button-container {
     display: flex;
     justify-content: center;
-  }
+}
