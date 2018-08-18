@@ -1,0 +1,14 @@
+<div class ="tasks">
+    <div class="task" *ngFor="let task of tasks; let i = index">
+      <label for="checkbox-{{i}}">
+        <input [(ngModel)]="task.status" type="checkbox" name="group1" id='checkbox-{{i}}'>
+        <span class="checkbox"></span>
+      </label>
+        <input [(ngModel)]="task.name" placeholder="what needs doin'?"/>
+    </div>
+  <div class="button-container">
+    <button (click)="addTask()">add</button>
+    <button (click)="clearTasks()">clean</button>
+  </div>
+</div>
+

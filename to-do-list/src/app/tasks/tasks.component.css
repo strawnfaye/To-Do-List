@@ -1,0 +1,127 @@
+/* tasksComponent's private CSS styles */
+:host {
+    max-width: 500px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #F2D7D5;
+    margin: 20px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 20px;
+}
+
+input:hover {
+    background-color: #A2D9CE;
+    color: white;
+    left: .1em;
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+    width: 75%;
+    margin: 4px 0;
+    margin-left: 34px;
+    padding: 12px 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color:#73C6B6;
+}
+
+::placeholder {
+    color:#73C6B6;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.task label {
+    position: relative;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.task .checkbox::before,
+.task .checkbox::after {
+    border-radius: 5px;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.task .checkbox::before {
+    width: 28px;
+    height: 28px;
+    background-color: #73C6B6;
+    /* left: -35px; */
+    box-sizing: border-box;
+    border: none;
+    transition: border-color .2s;
+}
+.task .checkbox:hover::before {
+    background-color: #A2D9CE;
+    cursor: pointer;
+}
+
+.task .checkbox::after {
+    display: none;
+}
+
+.task input:checked ~ .checkbox::after {
+    display: block;
+    cursor: pointer;
+    border-radius: 1px;
+    left: 9px;
+    bottom: 1px;
+    transition: background-color .2s;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+input[type="checkbox"]:checked + label .checkbox::after {
+    background-color: #117A65;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #D98880;
+    background-color: #F9EBEA;
+}
+
+button {
+    font-family: monospace;
+    color: white;
+    background-color: #D98880;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    width: 20%;
+    min-width: 50px;
+    margin: 8px;
+}
+
+button:focus {
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
