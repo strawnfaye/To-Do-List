@@ -22,8 +22,8 @@
 }
 */
 input:hover {
-    background-color: #F9EBEA;
-    color: #D98880;
+    background-color: #A2D9CE;
+    color: white;
     left: .1em;
 }
 
@@ -38,7 +38,11 @@ input {
     border-radius: 5px;
     border: none;
     outline: none;
-    color:#117A65;
+    color:#73C6B6;
+}
+
+::placeholder {
+    color:#73C6B6;
 }
 
 input[type='checkbox'] {
@@ -78,4 +82,27 @@ input[type='checkbox'] {
   }
   input[type="checkbox"]:checked + label span.checkbox::after {
     background-color: #117A65;
+  }
+
+  button:hover {
+      cursor: pointer;
+      color: #D98880;
+      background-color: #F9EBEA;
+  }
+
+  button {
+    font-family: monospace;
+    color: #F9EBEA;
+    background-color: #D98880;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    width: 20%;
+    min-width: 50px;
+    margin: 8px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
   }

@@ -2,20 +2,26 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task } from './task';
 import { TASKS } from './mock-tasks';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor() { }
+  constructor(private storage:LocalStorageService) { }
 
   getTasks(): Observable<Task[]> {
-    return of(TASKS);
+    return this.storage.retrieve('taskList');
   }
-/*
-  addTask(task: Task): Observable<Task> {
-    
+
+  storeTasks(tasks: Task[]) {
+    this.storage.store('taskList', tasks);
   }
-  */
+
+  clearTasks() {
+    this.storage.clear('taskList');
+  }
+  
+
 }

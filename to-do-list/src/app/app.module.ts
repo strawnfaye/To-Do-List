@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Ng2Webstorage } from 'ngx-webstorage';
 
 import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
@@ -12,6 +13,7 @@ import { TasksComponent } from './tasks/tasks.component';
   ],
   imports: [
     BrowserModule,
+    Ng2Webstorage,
     FormsModule
   ],
   providers: [],

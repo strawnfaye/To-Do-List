@@ -7,7 +7,12 @@
     <div class="task">
         <input type="checkbox" name="group1" id='checkbox-{{i}}'>
         <label for="checkbox-{{i}}"><span class="checkbox"></span></label>
-        <input [(ngModel)]="task.name" placeholder="add a task!"/>
+        <input [(ngModel)]="task.name" placeholder="what needs doin'?"/>
     </div>
   </li>
+  <div class="button-container">
+    <button (click)="addTask()">add</button>
+    <button (click)="clearTasks()">clear</button>
+  </div>
 </ul>
+
